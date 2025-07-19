@@ -1,0 +1,24 @@
+<Patch>
+  <!-- 최대 개수 변경 -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GravFieldExtender"]/comps/li[@Class="CompProperties_GravshipFacility"]/maxSimultaneous</xpath>
+    <value>
+      <maxSimultaneous>255</maxSimultaneous>
+    </value>
+  </Operation>
+  
+  <!-- 범위 제한 해제 -->
+  <Operation Class="PatchOperationRemove">
+	<xpath>Defs/ThingDef[defName="GravFieldExtender"]/placeWorkers/li[.="PlaceWorker_InRangeOfGravEngine"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+	<xpath>Defs/ThingDef[defName="GravFieldExtender"]/comps</xpath>
+	<value>
+		<li Class="CompProperties_AffectedByFacilities">
+			<linkableFacilities>
+			  <li>GravFieldExtender</li>
+			</linkableFacilities>
+		</li>
+	</value>
+  </Operation>
+</Patch>
